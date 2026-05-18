@@ -16,11 +16,12 @@ An intelligent, full-stack web application designed to solve the "unstructured d
 
 ---
 
-### 2. AI-Driven Autocorrect System (`Task2_Autocorrect`)
-An intelligent word-correction tool inspired by modern keyboard suggestions.
+### 2. AI-Driven Autocorrect Engine (`Task2_Autocorrect`)
+A high-performance, full-stack NLP autocorrect web interface.
 * **Core Logic:** Implemented **Edit Distance** (Levenshtein logic) to identify potential word matches.
-* **Data Source:** Utilized the **Sherlock Holmes corpus** for word frequency analysis, ensuring the system suggests the most statistically likely corrections.
-* **Tech Stack:** `Python`, `Regex`, `Collections (Counter)`.
+* **Data Source:** Utilized the **Sherlock Holmes corpus** for word frequency analysis to suggest the most statistically likely corrections.
+* **Features:** A professional, animated data-science dashboard featuring a multi-step async robotic analysis flow (Scanning -> Repairing -> Result) with Matrix Cyan highlights and a custom illuminating cursor.
+* **Tech Stack:** `Python`, `Flask`, `Regex`, `HTML/CSS/JS (Async/Await)`.
 
 ## 📈 Technical Skills Demonstrated
 * **NLP Foundations:** Vocabulary building, tokenization, and frequency distributions.

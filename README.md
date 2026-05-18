@@ -8,11 +8,11 @@ These projects focus on **Natural Language Processing (NLP)**, algorithmic logic
 
 ## 🛠️ Featured Projects
 
-### 1. Automated Resume Parser (`Task1_Resumeparser`)
-A tool designed to solve the "unstructured data" problem in recruitment.
-* **Function:** Automatically extracts key entities (Name, Contact, Skills) from resume documents.
-* **Impact:** Streamlines the data entry process for HR teams by converting document text into structured data.
-* **Tech Stack:** `Python`, `String Processing`.
+### 1. AI Resume Evaluator & HR Dashboard (`Task1_Resumeparser`)
+An intelligent, full-stack web application designed to solve the "unstructured data" problem in recruitment.
+* **Function:** Uses NLP to extract key entities (Name, Contact, Skills) from `.docx` resumes and evaluates them against custom HR prompts to generate a candidate match score.
+* **Features:** A premium, glassmorphism-inspired UI with simulated processing states, real-time scoring, and automated database storage.
+* **Tech Stack:** `Python`, `Flask`, `Spacy (NLP)`, `MongoDB`, `HTML/CSS/JS`.
 
 ---
 

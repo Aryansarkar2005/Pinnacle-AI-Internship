@@ -89,24 +89,25 @@ def parse_resume(file_path):
         "content": text
     }
 
-# 3. Main Execution
-filename = "Gul_Afsha_Resume.docx"
-try:
-    result = parse_resume(filename)
-    
-    # Save it to MongoDB
-    collection.insert_one(result)
-    
-    print("\n" + "="*40)
-    print("      🚀 RESUME PARSED SUCCESSFULLY")
-    print("="*40)
-    print(f"Name:      {result['name']}")
-    print(f"Email:     {result['email']}")
-    print(f"Phone:     {result['phone']}")
-    print(f"Skills:    {', '.join(result['skills'])}")
-    print(f"Processed: {result['date_processed']}")
-    print("="*40)
-    print("Saved to MongoDB: Internship_DB > Resumes")
+if __name__ == "__main__":
+    # 3. Main Execution
+    filename = "Gul_Afsha_Resume.docx"
+    try:
+        result = parse_resume(filename)
+        
+        # Save it to MongoDB
+        collection.insert_one(result)
+        
+        print("\n" + "="*40)
+        print("      🚀 RESUME PARSED SUCCESSFULLY")
+        print("="*40)
+        print(f"Name:      {result['name']}")
+        print(f"Email:     {result['email']}")
+        print(f"Phone:     {result['phone']}")
+        print(f"Skills:    {', '.join(result['skills'])}")
+        print(f"Processed: {result['date_processed']}")
+        print("="*40)
+        print("Saved to MongoDB: Internship_DB > Resumes")
 
-except Exception as e:
-    print(f"Error occurred: {e}")
+    except Exception as e:
+        print(f"Error occurred: {e}")

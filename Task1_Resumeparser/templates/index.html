@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Resume Evaluator - HR Dashboard</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Background Animation Elements -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fa-solid fa-brain"></i>
+                <h1>Intelli<span>Parse</span></h1>
+            </div>
+            <p>Advanced AI Resume Analysis for HR</p>
+        </header>
+
+        <main>
+            <!-- Input Section -->
+            <section class="glass-panel" id="input-section">
+                <h2>Candidate Evaluation</h2>
+                <form id="evaluation-form" enctype="multipart/form-data">
+                    
+                    <div class="form-group">
+                        <label for="hr_prompt">
+                            <i class="fa-solid fa-pen-nib"></i> Target Skills & Requirements
+                        </label>
+                        <textarea id="hr_prompt" name="hr_prompt" placeholder="e.g. Looking for a full-stack developer with React, Node, and Python experience..." required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            <i class="fa-solid fa-file-arrow-up"></i> Upload Resume (.docx)
+                        </label>
+                        <div class="file-upload-wrapper">
+                            <input type="file" id="resume" name="resume" accept=".docx" required class="file-input">
+                            <div class="upload-ui">
+                                <i class="fa-solid fa-cloud-arrow-up"></i>
+                                <span class="upload-text">Drag & drop or click to browse</span>
+                                <span class="file-name" id="file-name-display"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="primary-btn" id="submit-btn">
+                        <span>Analyze Candidate</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </form>
+            </section>
+
+            <!-- Processing Overlay -->
+            <div id="processing-overlay" class="hidden">
+                <div class="loader-container">
+                    <div class="spinner"></div>
+                    <h3 id="processing-status">Initializing AI Engine...</h3>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress-fill"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Section -->
+            <section class="glass-panel hidden" id="results-section">
+                <div class="results-header">
+                    <h2>Evaluation Results</h2>
+                    <button class="reset-btn" id="reset-btn" type="button">
+                        <i class="fa-solid fa-rotate-left"></i> New Analysis
+                    </button>
+                </div>
+
+                <div class="candidate-profile">
+                    <div class="profile-header">
+                        <div class="avatar"><i class="fa-solid fa-user-tie"></i></div>
+                        <div class="profile-info">
+                            <h3 id="res-name">Loading...</h3>
+                            <div class="contact-badges">
+                                <span class="badge"><i class="fa-solid fa-envelope"></i> <span id="res-email"></span></span>
+                                <span class="badge"><i class="fa-solid fa-phone"></i> <span id="res-phone"></span></span>
+                            </div>
+                        </div>
+                        <div class="score-container" id="score-container">
+                            <div class="score-ring">
+                                <span class="score-text" id="res-score">Best</span>
+                            </div>
+                            <span class="match-text">Match Rating</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skills-analysis">
+                    <div class="analysis-box">
+                        <h4><i class="fa-solid fa-bullseye"></i> Desired Skills</h4>
+                        <div class="skill-tags" id="res-desired-skills">
+                            <!-- Populated via JS -->
+                        </div>
+                    </div>
+
+                    <div class="analysis-box">
+                        <h4><i class="fa-solid fa-check-double"></i> Matched Skills</h4>
+                        <div class="skill-tags matched" id="res-matched-skills">
+                            <!-- Populated via JS -->
+                        </div>
+                    </div>
+
+                    <div class="analysis-box full-width">
+                        <h4><i class="fa-solid fa-layer-group"></i> All Extracted Candidate Skills</h4>
+                        <div class="skill-tags neutral" id="res-all-skills">
+                            <!-- Populated via JS -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

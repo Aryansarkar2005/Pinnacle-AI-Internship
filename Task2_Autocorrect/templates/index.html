@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NLP AutoCorrect Engine</title>
+    <!-- Technical Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <!-- Illuminating Mouse Cursor -->
+    <div class="cursor-dot" id="cursor-dot"></div>
+
+    <div class="terminal-container">
+        <header class="terminal-header">
+            <div class="status-indicator">
+                <div class="pulse"></div>
+                <span>SYSTEM_ONLINE</span>
+            </div>
+            <h1>NLP_AUTOCORRECT_ENGINE</h1>
+            <div class="model-info">CORPUS: SHERLOCK_HOLMES_DATASET</div>
+        </header>
+
+        <main>
+            <!-- Phase 1: Input -->
+            <div class="io-panel input-panel" id="input-section">
+                <div class="panel-label">>> CORRUPTED_DATA_STREAM</div>
+                <textarea id="text-input" placeholder="Transmit corrupted text sequence here for repair..."></textarea>
+                <div class="controls">
+                    <button id="process-btn" class="primary-btn">
+                        <span>INITIATE SCAN</span>
+                        <div class="btn-glitch"></div>
+                    </button>
+                    <button id="clear-btn" class="secondary">ABORT</button>
+                </div>
+            </div>
+
+            <!-- Phase 2 & 3: Scanning & Repair Animation -->
+            <div class="io-panel hidden" id="animation-section">
+                <div class="robotic-status" id="robotic-status">
+                    <!-- Status text injected by JS -->
+                </div>
+                <div class="progress-bar-container hidden" id="progress-container">
+                    <div class="progress-bar-fill" id="progress-fill"></div>
+                </div>
+                <div class="controls hidden" id="reveal-controls">
+                    <button id="reveal-btn" class="matrix-btn">
+                        <span>VIEW REPAIRED DATA</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Phase 4: Output -->
+            <div class="io-panel output-panel hidden" id="output-container">
+                <div class="panel-label">>> REPAIRED_DATA_STREAM <span id="metrics" class="metrics"></span></div>
+                <div id="text-output" class="text-display">
+                    <!-- Javascript will populate this -->
+                </div>
+                <div class="controls" style="margin-top: 2rem;">
+                    <button id="reset-home-btn" class="secondary">PROCESS NEW SEQUENCE</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

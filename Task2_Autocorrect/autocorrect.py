@@ -48,42 +48,4 @@ def suggest_correction(word):
             return max(r2, key=word_memory.get)
             
     return word
-
-# --- 4. THE VISUAL DIFF LOGIC ---
-def autocorrect_with_diff(sentence):
-    # Split while keeping punctuation attached
-    words = sentence.split()
-    final_output = []
-    
-    for w in words:
-        # Strip punctuation just for the AI check
-        clean = re.sub(r'[^\w]', '', w.lower())
-        corrected = suggest_correction(clean)
-        
-        # If the AI changed the word, highlight it
-        if clean != corrected:
-            # We put the punctuation back if it existed
-            punc = w[len(clean):] 
-            final_output.append(f"({w.upper()} -> {corrected}{punc})")
-        else:
-            final_output.append(w)
-            
-    return " ".join(final_output)
-
-# --- 5. THE INTERFACE ---
-if __name__ == "__main__":
-    print("\n" + "★"*40)
-    print("      PINNACLE LABS: TASK 2 COMPLETE      ")
-    print("      AI AUTOCORRECT SYSTEM w/ DIFF       ")
-    print("★"*40)
-    print(f"STATUS: {len(word_memory)} words loaded from memory.")
-    
-    while True:
-        user_input = input("\nEnter sentence (or 'exit'): ")
-        if user_input.lower() == 'exit':
-            print("Shutting down... Happy coding!")
-            break
-            
-        result = autocorrect_with_diff(user_input)
-        print(f"\n✨ RESULT:")
-        print(result) 
+

@@ -1,4 +1,19 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Custom Illuminating Cursor
+    const cursorDot = document.getElementById('cursor-dot');
+    document.addEventListener('mousemove', (e) => {
+        if (cursorDot) {
+            cursorDot.style.left = `${e.clientX}px`;
+            cursorDot.style.top = `${e.clientY}px`;
+        }
+    });
+    document.addEventListener('mousedown', () => {
+        if (cursorDot) cursorDot.style.transform = 'translate(-50%, -50%) scale(1.5)';
+    });
+    document.addEventListener('mouseup', () => {
+        if (cursorDot) cursorDot.style.transform = 'translate(-50%, -50%) scale(1)';
+    });
+
     const form = document.getElementById('evaluation-form');
     const fileInput = document.getElementById('resume');
     const fileNameDisplay = document.getElementById('file-name-display');

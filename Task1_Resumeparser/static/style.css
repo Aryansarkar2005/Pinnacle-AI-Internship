@@ -28,6 +28,23 @@ body {
     min-height: 100vh;
     overflow-x: hidden;
     position: relative;
+    cursor: none;
+}
+
+/* Illuminating Cursor */
+.cursor-dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--primary-light);
+    box-shadow: 0 0 10px var(--primary-light), 0 0 20px var(--primary-light);
+    border-radius: 50%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: transform 0.15s ease-out;
 }
 
 /* Background Blobs for Aesthetics */

@@ -1,3 +1,4 @@
+This is a sample and a simple text to test the autocorrect function and tool
 Artificial intelligence is changing the world. 
 Python is a great language to learn for data science and machine learning. 
 Hello world, hello Bhubaneswar!

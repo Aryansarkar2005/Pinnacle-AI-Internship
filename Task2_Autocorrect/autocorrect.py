@@ -48,4 +48,4 @@ def suggest_correction(word):
             return max(r2, key=word_memory.get)
             
     return word
-
+
